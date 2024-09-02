@@ -1,0 +1,45 @@
+@import "./../../../styles.scss";
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 96px 10px 96px;
+}
+
+.logo {
+    img {
+        width: 200.66px;
+        height: 32px;
+        cursor: pointer;
+    }
+}
+
+
+.button {
+    button {
+        display: flex;
+        width: fit-content;
+        height: 48px;
+        border-radius: 40px;
+        padding: 12px 24px;
+        background-color: $blue;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        line-height: 23.44px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            background-color: lighten($blue, 10%);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            background-color: darken($blue, 5%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
