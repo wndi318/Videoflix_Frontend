@@ -1,1 +1,30 @@
-<p>sign-up works!</p>
+<section class="content">
+    <section class="header">
+        <div class="logo">
+            <img src="./../../../assets/img/videoflix_logo.svg" routerLink="">
+        </div>
+        <button><a routerLink="/log-in">Log in</a></button>
+    </section>
+    <div class="login-card">
+        <mat-card appearance="outlined">
+            <h1>Sign Up</h1>
+            <div class="input-container">
+                <input class="input-text" type="mail" placeholder="Email Address">
+                <input [type]="passwordFieldType" id="passwordField" class="input-text password"
+                    placeholder="Enter a Password" (click)="togglePasswordVisibility($event)"
+                    (mousemove)="changeCursorOnHover($event)">
+                <input [type]="passwordFieldType" id="passwordField" class="input-text password"
+                    placeholder="Confirm Password" (click)="togglePasswordVisibility($event)"
+                    (mousemove)="changeCursorOnHover($event)">
+                <div><img src="./../../assets/img/warning.svg">Passwords must match</div>
+            </div>
+            <div class="button-container">
+                <button disabled>Get Started</button>
+            </div>
+        </mat-card>
+    </div>
+    <div class="legal">
+        <a href="">Privacy Policy</a>
+        <a href="">Legal Notice</a>
+    </div>
+</section>

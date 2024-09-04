@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../shared/navbar/navbar.component";
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 
@@ -7,7 +6,6 @@ import { RouterModule } from '@angular/router';
   selector: 'app-login',
   standalone: true,
   imports: [
-    NavbarComponent,
     MatCardModule,
     RouterModule
   ],
