@@ -18,14 +18,25 @@ export class LoginComponent {
   togglePasswordVisibility(event: MouseEvent): void {
     const inputField = event.target as HTMLInputElement;
 
-    // Berechne, ob der Klick im Bereich des Sichtbarkeits-Symbols war
     const inputWidth = inputField.offsetWidth;
     const clickPosition = event.clientX - inputField.getBoundingClientRect().left;
-    const iconPositionStart = inputWidth - 40; // Position des Icons basierend auf background-position und padding
+    const iconPositionStart = inputWidth - 40;
 
     if (clickPosition >= iconPositionStart) {
-      // Wenn in den Bereich des Icons geklickt wurde, Passwort anzeigen/ausblenden
       this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
     }
   }
+
+  changeCursorOnHover(event: MouseEvent): void {
+    const inputField = event.target as HTMLInputElement;
+    const inputWidth = inputField.offsetWidth;
+    const hoverPosition = event.clientX - inputField.getBoundingClientRect().left;
+    const iconPositionStart = inputWidth - 40;
+    if (hoverPosition >= iconPositionStart) {
+      inputField.style.cursor = 'pointer';
+    } else {
+      inputField.style.cursor = 'text';
+    }
+  }
 }
+

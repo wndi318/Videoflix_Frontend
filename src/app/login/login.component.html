@@ -8,8 +8,9 @@
         <mat-card appearance="outlined">
             <h1>Log in</h1>
             <div class="input-container">
-                <input class="input-text" type="mail" placeholder="E-mail Address">
-                <input [type]="passwordFieldType" id="passwordField" class="input-text password" placeholder="Password" (click)="togglePasswordVisibility($event)">
+                <input class="input-text" type="mail" placeholder="Email Address">
+                <input [type]="passwordFieldType" id="passwordField" class="input-text password" placeholder="Password"
+                    (click)="togglePasswordVisibility($event)" (mousemove)="changeCursorOnHover($event)">
             </div>
             <div class="checkbox-container">
                 <input class="checkbox" type="checkbox">
@@ -21,5 +22,9 @@
                 <span>New to Videoflix?<a href="">Sign Up now</a></span>
             </div>
         </mat-card>
+    </div>
+    <div class="legal">
+        <a href="">Privacy Policy</a>
+        <a href="">Legal Notice</a>
     </div>
 </section>

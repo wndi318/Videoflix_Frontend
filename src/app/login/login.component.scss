@@ -80,6 +80,7 @@
          background-repeat: no-repeat;
          background-position: 95%;
          background-size: 24px;
+
     }
 }
 
@@ -164,6 +165,33 @@
 
         &:active {
             color: darken($blue, 5%);
+            font-weight: 700;
+        }
+    }
+}
+
+.legal {
+    display: flex;
+    gap: 48px;
+    justify-content: center;
+    position: relative;
+    bottom: -85%;
+    
+    a {
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 23.44px;
+        transition: color 0.3s ease, font-weight 0.3s ease;
+
+        &:hover {
+            color: lighten(white, 10%);
+            font-weight: 700;
+        }
+
+        &:active {
+            color: darken(white, 5%);
             font-weight: 700;
         }
     }
