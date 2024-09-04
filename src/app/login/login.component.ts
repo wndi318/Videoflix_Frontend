@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from "../shared/navbar/navbar.component";
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     NavbarComponent,
-    MatCardModule
+    MatCardModule,
+    RouterModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
