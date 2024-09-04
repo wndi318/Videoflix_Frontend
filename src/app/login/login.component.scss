@@ -1,0 +1,170 @@
+@import "./../../styles.scss";
+
+.content {
+    height: 100%;
+    width: 100vw;
+    background-image: url('./../../assets/img/login_bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 10px 96px 10px 96px;
+    height: 108px;
+}
+
+.logo {
+    img {
+        width: 200.66px;
+        height: 32px;
+        cursor: pointer;
+    }
+}
+
+.login-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    mat-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 520px;
+        height: fit-content;
+        border-radius: 48px;
+        padding: 43px 56px 43px 56px;
+
+        h1 {
+            font-weight: 700;
+            font-size: 48px;
+            line-height: 48px;
+            color: $blue;
+        }
+    }
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    .input-text {
+        width: 360px;
+        height: 48px;
+        padding: 0px 24px 0px 24px;
+        border-radius: 12px;
+        border: 1px solid $blue;
+        color: $blue;
+        font-size: 18px;
+        line-height: 23.44px;
+
+        &::placeholder {
+            opacity: 0.5;
+            color: $blue;
+            font-size: 18px;
+            line-height: 23.44px;
+        }
+    }
+
+    .password {
+         background-image: url('./../../assets/img/visibility.svg');
+         background-repeat: no-repeat;
+         background-position: 95%;
+         background-size: 24px;
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    width: 408px;
+    gap: 4px;
+    justify-content: start;
+    align-items: center;
+    font-size: 16px;
+    line-height: 19.2px;
+
+    .checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        height: 12px;
+        width: 12px;
+        border-radius: 3px;
+        border: 1px solid $blue;
+        cursor: pointer;
+        display: inline-block;
+    }
+
+    .checkbox:checked {
+        background-color: $blue;
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 25px;
+
+    button {
+        display: flex;
+        width: fit-content;
+        height: 48px;
+        border-radius: 40px;
+        padding: 12px 24px 12px 24px;
+        background-color: $blue;
+        border: none;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        line-height: 23.44px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            background-color: lighten($blue, 10%);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &:active {
+            background-color: darken($blue, 5%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    span {
+        display: flex;
+        gap: 24px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    a {
+        text-decoration: none;
+        color: $blue;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 23.44px;
+        transition: color 0.3s ease, font-weight 0.3s ease;
+
+        &:hover {
+            color: lighten($blue, 10%);
+            font-weight: 700;
+        }
+
+        &:active {
+            color: darken($blue, 5%);
+            font-weight: 700;
+        }
+    }
+}
