@@ -36,6 +36,7 @@ $Videoflix_Frontend-theme: mat.define-light-theme((
 @include mat.all-component-themes($Videoflix_Frontend-theme);
 
 $blue: #2E3EDF;
+$error-red: #FF002E;
 
 * {
     font-family: 'DM Sans';
