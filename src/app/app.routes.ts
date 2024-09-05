@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { StartPageComponent } from './start-page/start-page.component';
-import { LoginComponent } from './login/login.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { StartPageComponent } from './startpage-components/start-page/start-page.component';
+import { LoginComponent } from './startpage-components/login/login.component';
+import { ForgotPasswordComponent } from './startpage-components/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './startpage-components/reset-password/reset-password.component';
+import { SignUpComponent } from './startpage-components/sign-up/sign-up.component';
 
 export const routes: Routes = [
     { path: '', component: StartPageComponent },

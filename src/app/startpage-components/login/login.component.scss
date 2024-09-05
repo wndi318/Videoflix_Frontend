@@ -1,9 +1,9 @@
-@import "./../../styles.scss";
+@import "./../../../styles.scss";
 
 .content {
     height: 100%;
     width: 100vw;
-    background-image: url('./../../assets/img/login_bg.jpeg');
+    background-image: url('./../../../assets/img/login_bg.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,7 +76,7 @@
     }
 
     .password {
-         background-image: url('./../../assets/img/visibility.svg');
+         background-image: url('./../../../assets/img/visibility.svg');
          background-repeat: no-repeat;
          background-position: 95%;
          background-size: 24px;
