@@ -42,7 +42,10 @@ $error-red: #FF002E;
     font-family: 'DM Sans';
 }
 
-
+body,html {
+  overflow-x: hidden;
+  background-color: #040404;
+}
 
 /* dm-sans-100 - latin */
 @font-face {
