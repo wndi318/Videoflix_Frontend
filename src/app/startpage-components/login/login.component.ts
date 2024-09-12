@@ -28,20 +28,16 @@ export class LoginComponent {
   login() {
     const userData = { email: this.email, password: this.password };
   
-    this.authService.loginUser(userData).subscribe(
-      (response) => {
+    this.authService.loginUser(userData).subscribe({
+      next: (response: any) => { 
         console.log('Login successful', response);
         localStorage.setItem('token', response.token);
         this.router.navigate(['/main-content']);
       },
-      (error) => {
+      error: (error: any) => {
         console.log('Login failed', error);
-        if (error.status === 400) {
-          console.error('Validation errors:', error.error);
-          // Hier kannst du die Fehlermeldung dem Benutzer anzeigen
-        }
       }
-    );
+    });
   }
 
   togglePasswordVisibility(event: MouseEvent): void {
