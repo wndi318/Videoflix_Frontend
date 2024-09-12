@@ -23,8 +23,10 @@ export class SignUpComponent {
   password: string = '';
   confirmPassword: string = '';
   passwordFieldType: string = 'password';
+  notification: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) { }
+
   passwordMismatch(): boolean {
     return this.password !== this.confirmPassword;
   }
@@ -42,14 +44,26 @@ export class SignUpComponent {
     this.authService.registerUser(userData).subscribe({
       next: (response) => {
         console.log('Registration successful', response);
+        this.setMailSend();
+        this.email = '';
+        this.password = '';
+        this.confirmPassword = '';
       },
       error: (error) => {
         console.error('Registration failed', error);
-      },
-      complete: () => {
-        console.log('Registration process completed.');
       }
     });
+  }
+
+  setMailSend(): void {
+    this.notification = true;
+    setTimeout(() => {
+      this.notification = false;
+    }, 5000);
+  }
+
+  closeBar() {
+    this.notification = false;
   }
 
   togglePasswordVisibility(event: MouseEvent): void {

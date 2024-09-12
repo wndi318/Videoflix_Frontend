@@ -9,17 +9,28 @@
             <h1>Log in</h1>
             <form (ngSubmit)="login()">
                 <div class="input-container">
-                    <input class="input-text" type="mail" placeholder="Email Address" name="email" [(ngModel)]="email">
+                    <input class="input-text" type="email" placeholder="Email Address" name="email" [(ngModel)]="email"
+                        required email #emailField="ngModel"
+                        [ngClass]="{'invalid': emailField.invalid && emailField.touched}">
+
+                    <div *ngIf="emailField.invalid && emailField.touched" class="error-message">
+                        <img src="assets/img/warning.svg"> Please enter a valid email address
+                    </div>
                     <input [type]="passwordFieldType" id="passwordField" class="input-text password"
-                        placeholder="Password" name="password" [(ngModel)]="password"
+                        placeholder="Password" name="password" [(ngModel)]="password" required #passwordField="ngModel"
+                        [ngClass]="{'invalid': passwordField.invalid && passwordField.touched}"
                         (click)="togglePasswordVisibility($event)" (mousemove)="changeCursorOnHover($event)">
+
+                    <div *ngIf="passwordField.invalid && passwordField.touched" class="error-message">
+                        <img src="assets/img/warning.svg"> Password is required
+                    </div>
                 </div>
                 <div class="checkbox-container">
                     <input class="checkbox" type="checkbox">
                     Remember me
                 </div>
                 <div class="button-container">
-                    <button (click)="login()">Log in</button>
+                    <button type="submit" [disabled]="!formValid()">Log in</button>
                     <a routerLink="/forgot-password">Forgot Password</a>
                     <span>New to Videoflix?<a routerLink="/sign-up">Sign Up now</a></span>
                 </div>
@@ -29,5 +40,17 @@
     <div class="legal">
         <a routerLink="/privacy-policy">Privacy Policy</a>
         <a routerLink="/imprint">Legal Notice</a>
+    </div>
+    <div class="notification" *ngIf="notification">
+        <div class="red-container"></div>
+        <span>Invalid password or email!</span>
+        <div class="line"></div>
+        <button (click)="closeBar()"><img src="./../../../assets/img/close_small.png"></button>
+    </div>
+    <div class="notification" *ngIf="notVerified">
+        <div class="red-container"></div>
+        <span>Email not verified, please check your mail account.</span>
+        <div class="line"></div>
+        <button (click)="closeBar()"><img src="./../../../assets/img/close_small.png"></button>
     </div>
 </section>

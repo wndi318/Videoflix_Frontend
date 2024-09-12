@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
   imports: [
     MatCardModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
@@ -21,6 +23,8 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   passwordFieldType: string = 'password';
+  notification: boolean = false;
+  notVerified: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -36,8 +40,22 @@ export class LoginComponent {
       },
       error: (error: any) => {
         console.log('Login failed', error);
+        if (error.status === 403 && error.error?.error === 'Email is not verified yet.') {
+          this.notVerified = true;
+        } else {
+          this.notification = true;
+        }
       }
     });
+  }
+
+  formValid(): boolean {
+    return this.email !== '' && this.password !== ''
+  }
+
+  closeBar() {
+    this.notification = false;
+    this.notVerified = false;
   }
 
   togglePasswordVisibility(event: MouseEvent): void {
