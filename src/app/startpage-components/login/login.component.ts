@@ -1,19 +1,48 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     MatCardModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+
+  email: string = '';
+  password: string = '';
   passwordFieldType: string = 'password';
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+
+  login() {
+    const userData = { email: this.email, password: this.password };
+  
+    this.authService.loginUser(userData).subscribe(
+      (response) => {
+        console.log('Login successful', response);
+        localStorage.setItem('token', response.token);
+        this.router.navigate(['/main-content']);
+      },
+      (error) => {
+        console.log('Login failed', error);
+        if (error.status === 400) {
+          console.error('Validation errors:', error.error);
+          // Hier kannst du die Fehlermeldung dem Benutzer anzeigen
+        }
+      }
+    );
+  }
 
   togglePasswordVisibility(event: MouseEvent): void {
     const inputField = event.target as HTMLInputElement;
