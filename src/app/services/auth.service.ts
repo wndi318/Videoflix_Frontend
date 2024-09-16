@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { lastValueFrom, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -28,4 +28,13 @@ export class AuthService {
     return this.http.post(`${this.url}/logout/`, {}, { headers });
   }
 
+  requestPasswordReset(email: string): Observable<any> {
+    return this.http.post(`${this.url}/password-reset/`, { email });
+  }
+
+  resetPassword(userId: string, token: string, newPassword: string): Observable<any> {
+    return this.http.post(`${this.url}/reset-password-confirm/${userId}/${token}/`, {
+      new_password: newPassword
+    });
+  }
 }
