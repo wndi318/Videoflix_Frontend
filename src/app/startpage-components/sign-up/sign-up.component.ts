@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule } from '@angular/router';
+import { RouterModule,ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -25,7 +24,16 @@ export class SignUpComponent {
   passwordFieldType: string = 'password';
   notification: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      this.email = params['email'] || '';
+    });
+  }
 
   passwordMismatch(): boolean {
     return this.password !== this.confirmPassword;

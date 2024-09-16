@@ -10,7 +10,8 @@
         <h2>Watch whenever you want wherever you want</h2>
         <h3>Enter your email to create or restart your subscription.</h3>
         <div class="input-container">
-            <input type="email" placeholder="Email Adress"><button><a routerLink="sign-up">Sign Up ></a></button>
+            <input type="email" placeholder="Email Address" [(ngModel)]="email">
+            <button (click)="goToSignUp()">Sign Up ></button>
         </div>
     </div>
     <div class="legal">
