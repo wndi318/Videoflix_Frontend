@@ -19,6 +19,8 @@
     button {
         display: flex;
         width: fit-content;
+        align-items: center;
+        gap: 4px;
         height: 48px;
         border-radius: 40px;
         padding: 12px 24px 12px 24px;
@@ -26,6 +28,10 @@
         border: none;
         cursor: pointer;
         transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        line-height: 23.44px;
 
         &:hover {
             background-color: lighten($blue, 10%);
@@ -35,14 +41,6 @@
         &:active {
             background-color: darken($blue, 5%);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        a {
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            color: white;
-            line-height: 23.44px;
         }
     }
 }
