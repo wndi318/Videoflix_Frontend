@@ -120,6 +120,29 @@
     }
 }
 
+.video-thumbnails {
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.video-card {
+    width: 213px;
+    height: 120px;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+
+    &:hover {
+        scale: 1.05;
+    }
+
+    img {
+        width: 213px;
+        height: 120px;
+    }
+}
+
 
 .legal {
     display: flex;

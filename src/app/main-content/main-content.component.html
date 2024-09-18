@@ -8,7 +8,8 @@
     <div class="placeholder">
         <div>
             <h1>Breakout</h1>
-            <span>In a high-security prison, a wrongly convicted man formulates a meticulous plan to break out and prove his
+            <span>In a high-security prison, a wrongly convicted man formulates a meticulous plan to break out and prove
+                his
                 innocence. He must navigate a web of alliances and betrayals to reclaim his freedom and expose the
                 truth.</span>
             <button><img src="assets/img/play_arrow.svg">Play</button>
@@ -17,15 +18,35 @@
     <div class="video-categories">
         <div>
             <span>New on Videoflix</span>
+            <div class="video-thumbnails">
+                <div *ngFor="let video of newOnVideoflix" class="video-card">
+                    <img [src]="video.thumbnail_url" />
+                </div>
+            </div>
         </div>
         <div>
             <span>Documentary</span>
+            <div class="video-thumbnails">
+                <div *ngFor="let video of documentaries" class="video-card">
+                    <img [src]="video.thumbnail_url" />
+                </div>
+            </div>
         </div>
         <div>
             <span>Drama</span>
+            <div class="video-thumbnails">
+                <div *ngFor="let video of dramas" class="video-card">
+                    <img [src]="video.thumbnail_url" />
+                </div>
+            </div>
         </div>
         <div>
             <span>Romance</span>
+            <div class="video-thumbnails">
+                <div *ngFor="let video of romances" class="video-card">
+                    <img [src]="video.thumbnail_url" />
+                </div>
+            </div>
         </div>
     </div>
     <div class="legal">
