@@ -1,0 +1,119 @@
+@import "./../../styles.scss";
+
+section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 96px 96px 96px 96px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #040404;
+    color: white;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 311px;
+    z-index: 100;
+    gap: 16px;
+
+    div {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 88px;
+            font-weight: 700;
+            line-height: 114.58px;
+            margin-block-end: 0;
+            margin-block-start: 0;
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            transition: scale 0.3s ease;
+            height: fit-content;
+
+            &:hover {
+                scale: 1.05;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            img {
+                height: 44px;
+            }
+        }
+    }
+
+    .details {
+        display: flex;
+        gap: 16px;
+        justify-content: start;
+
+        .genre {
+            background-color: #040404;
+            padding: 8px;
+            font-weight: 700;
+            border-radius: 16px;
+            width: fit-content;
+        }
+
+    }
+
+    
+    .play-button {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: 4px;
+        height: 48px;
+        border-radius: 40px;
+        padding: 12px 24px 12px 24px;
+        background-color: $blue;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        line-height: 23.44px;
+
+        &:hover {
+            background-color: lighten($blue, 10%);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            background-color: darken($blue, 5%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}

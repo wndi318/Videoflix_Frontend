@@ -19,7 +19,7 @@
         <div>
             <span>New on Videoflix</span>
             <div class="video-thumbnails">
-                <div *ngFor="let video of newOnVideoflix" class="video-card">
+                <div *ngFor="let video of newOnVideoflix" class="video-card" (click)="openDetailView(video.id)">
                     <img [src]="video.thumbnail_url" />
                 </div>
             </div>
@@ -27,7 +27,7 @@
         <div>
             <span>Documentary</span>
             <div class="video-thumbnails">
-                <div *ngFor="let video of documentaries" class="video-card">
+                <div *ngFor="let video of documentaries" class="video-card" (click)="openDetailView(video.id)">
                     <img [src]="video.thumbnail_url" />
                 </div>
             </div>
@@ -35,7 +35,7 @@
         <div>
             <span>Drama</span>
             <div class="video-thumbnails">
-                <div *ngFor="let video of dramas" class="video-card">
+                <div *ngFor="let video of dramas" class="video-card" (click)="openDetailView(video.id)">
                     <img [src]="video.thumbnail_url" />
                 </div>
             </div>
@@ -43,7 +43,7 @@
         <div>
             <span>Romance</span>
             <div class="video-thumbnails">
-                <div *ngFor="let video of romances" class="video-card">
+                <div *ngFor="let video of romances" class="video-card" (click)="openDetailView(video.id)">
                     <img [src]="video.thumbnail_url" />
                 </div>
             </div>
