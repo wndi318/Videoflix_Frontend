@@ -21,6 +21,10 @@ export class AuthService {
     return this.http.post(`${this.url}/login/`, userData);
   }
 
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+  
   logoutUser(token: string): Observable<any> {
     const headers = new HttpHeaders({
       'Authorization': `Token ${token}`

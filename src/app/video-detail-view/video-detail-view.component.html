@@ -1,6 +1,6 @@
-<section [ngStyle]="{ 'background-image': 'url(' + videoDetails.thumbnail_url + ')' }">
+<section [ngStyle]="{ 'background-image': 'url(' + videoDetails?.thumbnail_url + ')' }">
     <div class="header">
-        <div>
+        <div class="headline">
             <h1>{{ videoDetails?.title }}</h1>
         </div>
         <span>{{ videoDetails?.description }}</span>
@@ -8,16 +8,20 @@
             <span class="genre">{{ videoDetails?.group }}</span>
             <span class="genre">{{ videoDetails?.created_at }}</span>
         </div>
-        <select [(ngModel)]="selectedQuality" (change)="onQualityChange()">
-            <option value="480p">480p</option>
-            <option value="720p">720p</option>
-            <option value="1080p">1080p</option>
-        </select>
-
+        <div class="quality-select">
+            <label for="quality-select">Select Quality:</label>
+            <select id="quality-select" [(ngModel)]="selectedQuality" (change)="onQualityChange()">
+                <option value="480p">480p</option>
+                <option value="720p">720p</option>
+                <option value="1080p">1080p</option>
+            </select>
+        </div>
         <video #videoPlayer [src]="videoDetails?.video_720p_url || videoDetails?.video_file" controls></video>
-
-        <button class="play-button" (click)="playVideoInFullscreen(videoPlayer)">
-            <img src="assets/img/play_arrow.svg"> Play
-        </button>
+        <div class="button-container">
+            <button class="play-button" (click)="playVideoInFullscreen(videoPlayer)">
+                <img src="assets/img/play_arrow.svg"> Play
+            </button>
+            <button (click)="onNoClick()">Back</button>
+        </div>
     </div>
 </section>

@@ -34,7 +34,7 @@ section::before {
     z-index: 100;
     gap: 16px;
 
-    div {
+    .headline {
         display: flex;
         gap: 32px;
         align-items: center;
@@ -46,26 +46,6 @@ section::before {
             line-height: 114.58px;
             margin-block-end: 0;
             margin-block-start: 0;
-        }
-
-        button {
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            transition: scale 0.3s ease;
-            height: fit-content;
-
-            &:hover {
-                scale: 1.05;
-            }
-
-            &:focus {
-                outline: none;
-            }
-
-            img {
-                height: 44px;
-            }
         }
     }
 
@@ -83,9 +63,42 @@ section::before {
         }
 
     }
+}
 
-    
-    .play-button {
+.quality-select {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 8px;
+}
+
+.quality-select label {
+    font-size: 19px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.quality-select select {
+    padding: 5px 10px 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: $blue;
+    color: white;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background-color: lighten($blue, 10%);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+
+    button {
         display: flex;
         width: fit-content;
         align-items: center;
