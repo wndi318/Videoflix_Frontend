@@ -272,3 +272,51 @@
     font-size: 15px;
     line-height: 19.53px;
 }
+
+@media (max-width: 550px) {
+    mat-card {
+        max-width: 95vw;
+    }
+
+    .header {
+        padding: 10px 16px 10px 16px;
+    }
+
+    .logo {
+        img {
+            content: url('./../../../assets/img/logo_without_text.svg');
+            width: 32px;
+        }
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .input-text {
+            width: 70vw;
+            height: 48px;
+            padding: 0px 24px 0px 24px;
+            border-radius: 12px;
+            border: 1px solid $blue;
+            color: $blue;
+            font-size: 18px;
+            line-height: 23.44px;
+        }
+    }
+}
+
+@media (max-width: 355px) {
+    .button-container {
+        button {
+            height: fit-content;
+        }
+    }
+}
+
+@media (max-height: 1000px) {
+    .legal {
+        bottom: -70%;
+    }
+}

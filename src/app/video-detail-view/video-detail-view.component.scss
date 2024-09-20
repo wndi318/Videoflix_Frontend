@@ -8,7 +8,6 @@ section {
     padding: 96px 96px 96px 96px;
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: #040404;
     color: white;
     overflow-y: hidden;
@@ -127,6 +126,27 @@ section::before {
         &:active {
             background-color: darken($blue, 5%);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    section {
+        padding: 16px;
+        overflow-y: auto;
+        height: fit-content;
+    }
+
+    .header {
+        width: 90vw;
+        padding-top: 16px;
+        height: fit-content;
+
+        .headline {
+            h1 {
+                font-size: 64px;
+                line-height: 83.33px;
+            }
         }
     }
 }

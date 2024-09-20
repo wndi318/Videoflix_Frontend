@@ -177,3 +177,57 @@
         }
     }
 }
+
+@media (max-width: 550px) {
+    .header {
+        padding: 10px 16px 10px 16px;
+    }
+
+    .logo {
+        img {
+            content: url('./../../../assets/img/logo_without_text.svg');
+            width: 32px;
+        }
+    }
+
+    .content-container {
+        width: 90vw;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 444px) {
+    .header {
+        padding: 10px 16px 10px 16px;
+    }
+
+    .logo {
+        img {
+            content: url('./../../../assets/img/logo_without_text.svg');
+            width: 32px;
+        }
+    }
+
+    .content-container {
+        width: 90vw;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+
+        input {
+            width: 80vw;
+        }
+    }
+}
+
+@media (max-height: 1000px) {
+    .legal {
+        bottom: -70%;
+    }
+}

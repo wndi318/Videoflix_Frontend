@@ -17,6 +17,10 @@
     padding: 10px 96px 10px 96px;
     height: 108px;
 
+    .logo {
+        cursor: pointer;
+    }
+
     button {
         display: flex;
         width: fit-content;
@@ -57,5 +61,18 @@ span {
     
     a {
         color: white;
+    }
+}
+
+@media (max-width: 550px) {
+    .header {
+        padding: 10px 16px 10px 16px;
+    }
+
+    .logo {
+        img {
+            content: url('./../../../assets/img/logo_without_text.svg');
+            width: 32px;
+        }
     }
 }
