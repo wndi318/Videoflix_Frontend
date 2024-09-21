@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { RouterModule,ActivatedRoute } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 
@@ -40,7 +40,7 @@ export class SignUpComponent {
   }
 
   formValid(): boolean {
-    return this.email !== '' && this.password !== '' && !this.passwordMismatch();
+    return this.email !== '' && this.password.length >= 6 && !this.passwordMismatch();
   }
 
   register(): void {

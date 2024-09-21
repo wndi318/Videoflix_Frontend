@@ -8,28 +8,30 @@
     <div class="login-card">
         <mat-card appearance="outlined">
             <h1>Sign Up</h1>
-            <form (ngSubmit)="register()">
+            <form (ngSubmit)="register()" #signupForm="ngForm">
                 <div class="input-container">
                     <input class="input-text" type="email" placeholder="Email Address" [(ngModel)]="email" name="email"
                         required email #emailField="ngModel"
                         [ngClass]="{'invalid': emailField.invalid && emailField.touched}">
-
                     <div *ngIf="emailField.invalid && emailField.touched" class="error-message">
                         <img src="assets/img/warning.svg"> Please enter a valid email address
                     </div>
-                    
                     <input [type]="passwordFieldType" id="passwordField" class="input-text password"
-                        placeholder="Enter a Password" [(ngModel)]="password" name="password" required
+                        placeholder="Enter a Password" [(ngModel)]="password" name="password" required [ngModelOptions]="{updateOn: 'blur'}"
+                        #passwordField="ngModel" minlength="6" 
                         (click)="togglePasswordVisibility($event)" (mousemove)="changeCursorOnHover($event)">
+                    <div *ngIf="passwordField.errors?.['minlength'] && passwordField.touched" class="error-message">
+                        <img src="assets/img/warning.svg"> Password must be at least 6 characters long
+                    </div>
                     <input [type]="passwordFieldType" id="passwordConfirmField" class="input-text password"
                         placeholder="Confirm Password" [(ngModel)]="confirmPassword" name="confirmPassword" required
                         (click)="togglePasswordVisibility($event)" (mousemove)="changeCursorOnHover($event)">
-                    <div *ngIf="passwordMismatch()">
+                    <div *ngIf="passwordMismatch() && signupForm.submitted" class="error-message">
                         <img src="assets/img/warning.svg"> Passwords must match
                     </div>
                 </div>
                 <div class="button-container">
-                    <button type="submit" [disabled]="!formValid()">Get started</button>
+                    <button type="submit" [disabled]="!signupForm.valid">Get started</button>
                 </div>
             </form>
         </mat-card>
@@ -40,7 +42,7 @@
     </div>
     <div class="notification" *ngIf="notification">
         <div class="green-container"></div>
-        <span>Verification email send!</span>
+        <span>Verification email sent!</span>
         <div class="line"></div>
         <button (click)="closeBar()"><img src="./../../../assets/img/close_small.png"></button>
     </div>
