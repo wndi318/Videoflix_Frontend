@@ -34,12 +34,10 @@ export class LoginComponent {
   
     this.authService.loginUser(userData).subscribe({
       next: (response: any) => { 
-        console.log('Login successful', response);
         localStorage.setItem('token', response.token);
         this.router.navigate(['/main-content']);
       },
-      error: (error: any) => {
-        console.log('Login failed', error);
+      error: (error: any) => { 
         if (error.status === 403 && error.error?.error === 'Email is not verified yet.') {
           this.notVerified = true;
         } else {

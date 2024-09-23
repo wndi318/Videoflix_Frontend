@@ -51,7 +51,6 @@ export class SignUpComponent {
 
     this.authService.registerUser(userData).subscribe({
       next: (response) => {
-        console.log('Registration successful', response);
         this.setMailSend();
         this.email = '';
         this.password = '';

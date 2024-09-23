@@ -28,7 +28,6 @@ export class ForgotPasswordComponent {
     if (this.formValid()) {
       this.authService.requestPasswordReset(this.email).subscribe({
         next: (response) => {
-          console.log('Password reset link sent', response);
           this.notification = true;
           this.errorMessage = null;
 
@@ -37,7 +36,6 @@ export class ForgotPasswordComponent {
           }, 5000);
         },
         error: (error) => {
-          console.error('Error sending password reset link', error);
           if (error.error && error.error.email) {
             this.errorMessage = error.error.email[0];
           } else {

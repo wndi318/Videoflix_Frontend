@@ -63,7 +63,6 @@ export class MainContentComponent {
     if (token) {
       this.authService.logoutUser(token).subscribe({
         next: (response) => {
-          console.log('Logout successful', response);
           localStorage.removeItem('token');
           this.router.navigate(['/log-in']);
         },
