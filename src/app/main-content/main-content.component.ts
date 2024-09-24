@@ -49,12 +49,10 @@ export class MainContentComponent {
     this.romances = this.videos.filter(video => video.group === 'romance');
     this.newOnVideoflix = this.videos.filter(video => video.new_on_videoflix);
   }
-
+  
   openDetailView(videoId: number): void {
-    const dialogRef = this.dialog.open(VideoDetailViewComponent, {
-      width: '100%',
-      height: '100vh',
-      data: { id: videoId }
+    this.router.navigate(['/video', videoId]).then(() => {
+      window.scrollTo(0, 0);
     });
   }
 

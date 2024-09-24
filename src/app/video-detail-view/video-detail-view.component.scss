@@ -5,22 +5,26 @@ section {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 96px 96px 96px 96px;
+    padding-top: 32px;
     display: flex;
     justify-content: center;
+    align-items: start;
     background-color: #040404;
     color: white;
-    overflow-y: hidden;
-    height: 100vh;
+    overflow-y: auto;
+    min-height: 100vh;
 }
 
 section::before {
     content: "";
-    position: absolute;
+    height: 100%;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
@@ -28,6 +32,7 @@ section::before {
 .header {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     width: 440px;
     height: 311px;
     z-index: 100;
@@ -96,6 +101,7 @@ section::before {
 .button-container {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 96px;
 
     button {
         display: flex;
@@ -113,6 +119,39 @@ section::before {
         font-weight: 700;
         color: white;
         line-height: 23.44px;
+
+        &:hover {
+            background-color: lighten($blue, 10%);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &:focus {
+            outline: none;
+        }
+
+        &:active {
+            background-color: darken($blue, 5%);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    a {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: 4px;
+        height: 48px;
+        border-radius: 40px;
+        padding: 0px 24px 0px 24px;
+        background-color: $blue;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        font-size: 18px;
+        font-weight: 700;
+        color: white;
+        line-height: 23.44px;
+        text-decoration: none;
 
         &:hover {
             background-color: lighten($blue, 10%);

@@ -1,15 +1,17 @@
 import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { VideoService } from '../services/video.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-video-detail-view',
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   templateUrl: './video-detail-view.component.html',
   styleUrl: './video-detail-view.component.scss'
@@ -19,21 +21,21 @@ export class VideoDetailViewComponent {
   selectedQuality: string = '720p';
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: { id: number },
-    private videoService: VideoService,
-    public dialogRef: MatDialogRef<VideoDetailViewComponent>
+    private route: ActivatedRoute,
+    private videoService: VideoService
   ) {}
 
   ngOnInit(): void {
-    this.fetchVideoDetails();
+    const videoId = this.route.snapshot.paramMap.get('id');
+    if (videoId) {
+      this.fetchVideoDetails(+videoId);
+    }
   }
 
-  fetchVideoDetails(): void {
-    const videoId = this.data.id;
+  fetchVideoDetails(videoId: number): void {
     this.videoService.getVideoById(videoId).subscribe({
       next: (response) => {
         this.videoDetails = response;
-        this.updateVideoSource();
       },
       error: (error) => {
         console.error('Error fetching video details', error);
@@ -79,9 +81,5 @@ export class VideoDetailViewComponent {
 
     videoElement.style.display = 'block';
     videoElement.play();
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }
