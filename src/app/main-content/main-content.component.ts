@@ -4,7 +4,6 @@ import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { VideoService } from '../services/video.service';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
-import { VideoDetailViewComponent } from '../video-detail-view/video-detail-view.component';
 
 @Component({
   selector: 'app-main-content',
